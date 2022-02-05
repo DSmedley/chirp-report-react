@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Home from "./components/Home/Home";
-import About from "./components/About/About";
-import Analysis from "./components/Analysis/Analysis";
-import AppLayout from "./components/AppLayout/AppLayout";
+import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
+import Analysis from "./pages/Analysis/Analysis";
+import AppLayout from "./layouts/AppLayout/AppLayout";
 
 function App() {
     return (

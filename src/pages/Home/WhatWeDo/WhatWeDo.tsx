@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import styles from './WhatWeDo.module.css';
 import {Grid} from "@mui/material";
-import InfoCard from "../InfoCard/InfoCard";
+import InfoCard from "../../../components/InfoCard/InfoCard";
 import InfoIcon from "@mui/icons-material/Info";
 import BarChartIcon from "@mui/icons-material/BarChart";
-import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
+import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineRounded";
-import SectionTitle from "../SectionTitle/SectionTitle";
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 interface WhatWeDoProps {}
 
@@ -25,14 +25,14 @@ const WhatWeDo: FC<WhatWeDoProps> = () => (
               <InfoCard
                   title={"Sentiment"}
                   description={"The sentiment section displays the users overall positivity as well as a more in-depth analysis of eight emotions and how many times the user displays those emotions."}
-                  icon={BarChartIcon}
+                  icon={InsertEmoticonIcon}
               />
           </Grid>
           <Grid item xs={12} sm={6}>
               <InfoCard
                   title={"Inside Their Tweets"}
                   description={"This section displays statistics about how the user tweets and interacts with their followers and the people that they follow such as retweets, mentions and hashtags."}
-                  icon={ArrowCircleDownIcon}
+                  icon={BarChartIcon}
               />
           </Grid>
           <Grid item xs={12} sm={6}>

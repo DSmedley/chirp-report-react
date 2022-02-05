@@ -11,9 +11,16 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import ThemeSwitch from "../ThemeSwitch/ThemeSwitch";
+import ThemeSwitch from "../../components/ThemeSwitch/ThemeSwitch";
+import {MenuLink} from "./model/MenuLink";
+import {Link} from "@mui/material";
 
-const pages = ['Home', 'Analyze', 'Compare', 'About'];
+const pages = [
+    new MenuLink('Home', "/", true),
+    new MenuLink('Analyze', "/", true),
+    new MenuLink('Compare', "/", true),
+    new MenuLink('About', "/about", true)
+];
 const settings = ['Profile', 'Logout'];
 
 const Navigation = () => {
@@ -81,9 +88,11 @@ const Navigation = () => {
                             }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
+                                <Link key={page.name} href={page.route} underline="none">
+                                    <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                                        <Typography textAlign="center">{page.name}</Typography>
+                                    </MenuItem>
+                                </Link>
                             ))}
                             <MenuItem>
                                 <ThemeSwitch/>
@@ -103,13 +112,15 @@ const Navigation = () => {
                     />
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            >
-                                {page}
-                            </Button>
+                            <Link key={page.name} href={page.route} underline="none">
+                                <Button
+                                    key={page.name}
+                                    onClick={handleCloseNavMenu}
+                                    sx={{ my: 2, color: 'white', display: 'block' }}
+                                >
+                                    {page.name}
+                                </Button>
+                            </Link>
                         ))}
                     </Box>
 

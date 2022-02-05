@@ -1,12 +1,12 @@
 import React, {FormEvent, useState} from 'react';
-import styles from './AnalyzeHeader.module.css';
-import {Button, Divider, FormControl, InputAdornment, InputLabel, OutlinedInput} from "@mui/material";
+import styles from './BannerLarge.module.css';
+import {Divider, FormControl, InputAdornment, OutlinedInput} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 
-export default function AnalyzeHeader() {
+export default function BannerLarge() {
     const [screenName, setScreenName] = useState("");
     const navigate = useNavigate();
 
@@ -19,7 +19,7 @@ export default function AnalyzeHeader() {
         navigate(`/analysis/${screenName}`);
     }
     return (
-        <div className={styles.AnalyzeHeader} data-testid="AnalyzeHeader">
+        <div className={styles.BannerLarge} data-testid="BannerLarge">
             <Box
                 sx={{
                     backgroundImage: "linear-gradient(to bottom right,rgba(16 57 92/96%),rgba(0 0 0/.9)),url(/banner-bg-1.jpg)",

@@ -2,8 +2,7 @@ import React from 'react';
 import styles from './AppLayout.module.css';
 import Navigation from "../Navigation/Navigation";
 import {Outlet} from 'react-router-dom';
-import {Container, createTheme, CssBaseline, PaletteMode, ThemeProvider} from "@mui/material";
-import ThemeSwitch from "../ThemeSwitch/ThemeSwitch";
+import {createTheme, CssBaseline, PaletteMode, ThemeProvider} from "@mui/material";
 
 
 export const ColorModeContext = React.createContext({
@@ -39,11 +38,23 @@ const getTheme = (mode: PaletteMode) => ({
 });
 
 export default function AppLayout() {
-    const [mode, setMode] = React.useState<PaletteMode>('light');
+    const getInitialMode = () => {
+        const theme = localStorage.getItem('theme')
+        if (theme && (theme === 'dark' || theme === 'light' )){
+            return theme as PaletteMode
+        }
+        return 'light' as PaletteMode
+    }
+
+    const [mode, setMode] = React.useState<PaletteMode>(getInitialMode());
     const colorMode = React.useMemo(
         () => ({
             toggleColorMode: () => {
-                setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+                setMode((prevMode) => {
+                    const newMode = prevMode === 'light' ? 'dark' : 'light'
+                    localStorage.setItem('theme', newMode)
+                    return newMode
+                });
             },
         }),
         [],

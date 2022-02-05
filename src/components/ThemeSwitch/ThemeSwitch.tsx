@@ -3,7 +3,7 @@ import styles from './ThemeSwitch.module.css';
 import {IconButton, useTheme} from "@mui/material";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
-import {ColorModeContext} from "../AppLayout/AppLayout";
+import {ColorModeContext} from "../../layouts/AppLayout/AppLayout";
 
 export default function ThemeSwitch() {
     const theme = useTheme();
