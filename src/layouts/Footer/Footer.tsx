@@ -9,7 +9,7 @@ const Footer: FC<FooterProps> = () => (
   <div className={styles.Footer} data-testid="Footer">
       <Container sx={{mt: '2rem', mb: '2rem'}}>
           <Grid container>
-              <Grid item xs={12} sm={2}>
+              <Grid item xs={12} sm={2} sx={{display: 'flex', justifyContent: {xs: 'center', md:'left'}}}>
                   <Link href={"/"} underline={"none"}>
                       <Typography variant="button" color='primary.light'>
                           <b>Chirp Report</b>
@@ -17,7 +17,7 @@ const Footer: FC<FooterProps> = () => (
                   </Link>
               </Grid>
               <Grid item xs={12} sm={10}>
-                  <Stack direction="row" spacing={2} sx={{float: 'right'}}>
+                  <Stack direction="row" spacing={2} sx={{display: 'flex', justifyContent: {xs: 'center', md:'right'}}}>
                       <Link href={"/"} underline={"none"}>
                           <Typography variant="button" color='primary.light'>
                               <b>Analyze</b>

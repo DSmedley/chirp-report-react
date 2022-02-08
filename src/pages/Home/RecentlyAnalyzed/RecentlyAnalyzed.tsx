@@ -24,7 +24,7 @@ export default function RecentlyAnalyzed() {
             <SectionTitle title={'Recently Analyzed'}/>
             <Grid container spacing={2}>
                 {recent.map((analysis) => (
-                    <Grid key={analysis.id} item xs={12} sm={2}>
+                    <Grid key={analysis.id} item xs={6} sm={2}>
                         <Card sx={{ maxWidth: 185 }}>
                             <CardActionArea>
                                 <CardMedia
