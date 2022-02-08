@@ -3,6 +3,7 @@ import styles from './AppLayout.module.css';
 import Navigation from "../Navigation/Navigation";
 import {Outlet} from 'react-router-dom';
 import {createTheme, CssBaseline, PaletteMode, ThemeProvider} from "@mui/material";
+import Footer from "../Footer/Footer";
 
 
 export const ColorModeContext = React.createContext({
@@ -69,6 +70,7 @@ export default function AppLayout() {
                 <div className={styles.AppLayout} data-testid="AppLayout">
                     <Navigation/>
                     <Outlet/>
+                    <Footer/>
                 </div>
             </ThemeProvider>
         </ColorModeContext.Provider>
