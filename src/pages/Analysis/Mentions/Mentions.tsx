@@ -1,21 +1,19 @@
-import React, { FC } from 'react';
+import React from 'react';
 import styles from './Mentions.module.css';
-import {Card, CardContent, Typography} from "@mui/material";
+import {Card, CardContent, Typography} from '@mui/material';
 
-interface MentionsProps {}
-
-const Mentions: FC<MentionsProps> = () => (
+const Mentions = () => (
   <div className={styles.Mentions} data-testid="Mentions">
-      <Card variant="outlined">
-          <CardContent>
-              <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                  Twitter User Mentions
-              </Typography>
-              <Typography variant="h5" component="div">
-                  images
-              </Typography>
-          </CardContent>
-      </Card>
+    <Card variant="outlined">
+      <CardContent>
+        <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
+          Twitter User Mentions
+        </Typography>
+        <Typography variant="h5" component="div">
+          images
+        </Typography>
+      </CardContent>
+    </Card>
   </div>
 );
 

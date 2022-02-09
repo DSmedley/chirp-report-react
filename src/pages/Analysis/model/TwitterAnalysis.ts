@@ -1,16 +1,16 @@
 export class TwitterAnalysis {
-    constructor(
+  constructor(
     public id: number = 0,
     public twitter_id: number = 0,
-    public name: string = "",
-    public screen_name:string = "",
-    public location: string = "",
-    public profile_image: string = "",
+    public name: string = '',
+    public screen_name: string = '',
+    public location: string = '',
+    public profile_image: string = '',
     public verified: number = 0,
-    public joined: string = "",
-    public time_zone: string = "",
-    public url: string = "",
-    public description: string = "",
+    public joined: string = '',
+    public time_zone: string = '',
+    public url: string = '',
+    public description: string = '',
     public tweets: number = 0,
     public following: number = 0,
     public followers: number = 0,
@@ -38,16 +38,16 @@ export class TwitterAnalysis {
     public surprise: number = 0,
     public trust: number = 0,
     public none: number = 0,
-    public top_joy: string = "",
-    public top_sad: string = "",
-    public top_ang: string = "",
-    public top_fear: string = "",
-    public top_ant: string = "",
-    public top_surp: string = "",
-    public top_disg: string = "",
-    public top_trust: string = "",
-    public created_at: string = "",
-    public updated_at: string = ""
-    ) {
-    }
+    public top_joy: string = '',
+    public top_sad: string = '',
+    public top_ang: string = '',
+    public top_fear: string = '',
+    public top_ant: string = '',
+    public top_surp: string = '',
+    public top_disg: string = '',
+    public top_trust: string = '',
+    public created_at: string = '',
+    public updated_at: string = ''
+  ) {
+  }
 }

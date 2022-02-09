@@ -1,21 +1,19 @@
-import React, { FC } from 'react';
+import React from 'react';
 import styles from './InsideTweets.module.css';
-import {Card, CardContent, Typography} from "@mui/material";
+import {Card, CardContent, Typography} from '@mui/material';
 
-interface InsideTweetsProps {}
-
-const InsideTweets: FC<InsideTweetsProps> = () => (
+const InsideTweets = () => (
   <div className={styles.InsideTweets} data-testid="InsideTweets">
-      <Card variant="outlined">
-          <CardContent>
-              <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                  Inside Their Tweets
-              </Typography>
-              <Typography variant="h5" component="div">
-                  stats
-              </Typography>
-          </CardContent>
-      </Card>
+    <Card variant="outlined">
+      <CardContent>
+        <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
+          Inside Their Tweets
+        </Typography>
+        <Typography variant="h5" component="div">
+          stats
+        </Typography>
+      </CardContent>
+    </Card>
   </div>
 );
 

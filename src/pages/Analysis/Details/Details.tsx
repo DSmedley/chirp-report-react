@@ -1,9 +1,7 @@
-import React, { FC } from 'react';
+import React from 'react';
 import styles from './Details.module.css';
 
-interface DetailsProps {}
-
-const Details: FC<DetailsProps> = () => (
+const Details = () => (
   <div className={styles.Details} data-testid="Details">
     Details Component
   </div>

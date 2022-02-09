@@ -1,21 +1,19 @@
-import React, { FC } from 'react';
+import React from 'react';
 import styles from './ActiveHours.module.css';
-import {Card, CardContent, Typography} from "@mui/material";
+import {Card, CardContent, Typography} from '@mui/material';
 
-interface ActiveHoursProps {}
-
-const ActiveHours: FC<ActiveHoursProps> = () => (
+const ActiveHours = () => (
   <div className={styles.ActiveHours} data-testid="ActiveHours">
-      <Card variant="outlined">
-          <CardContent>
-              <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                  Active Hours
-              </Typography>
-              <Typography variant="h5" component="div">
-                  hours chart
-              </Typography>
-          </CardContent>
-      </Card>
+    <Card variant="outlined">
+      <CardContent>
+        <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
+          Active Hours
+        </Typography>
+        <Typography variant="h5" component="div">
+          hours chart
+        </Typography>
+      </CardContent>
+    </Card>
   </div>
 );
 
