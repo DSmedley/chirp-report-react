@@ -41,7 +41,7 @@ function DisplayAnalysis() {
     return `https://unavatar.io/twitter/${screenName}`;
   };
   useEffect(() => {
-    axios.get(`http://chirp.local/api/analyze?screen_name=${screenName}`)
+    axios.get(`${process.env.REACT_APP_CHIRP_API_URL}/analyze?screen_name=${screenName}`)
       .then(res => {
         setAnalysis(res.data);
       });

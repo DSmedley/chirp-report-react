@@ -13,7 +13,7 @@ export default function RecentlyAnalyzed() {
   };
 
   useEffect(() => {
-    axios.get('http://chirp.local/api/analyses')
+    axios.get(`${process.env.REACT_APP_CHIRP_API_URL}/analyses`)
       .then(res => {
         setRecent(res.data);
       });
