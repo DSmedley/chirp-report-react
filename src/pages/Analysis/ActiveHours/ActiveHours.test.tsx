@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import ActiveHours from './ActiveHours';
 
 describe('<ActiveHours />', () => {
-  test('it should mount', () => {
+  it('should mount', () => {
     render(<ActiveHours />);
     
     const activeHours = screen.getByTestId('ActiveHours');

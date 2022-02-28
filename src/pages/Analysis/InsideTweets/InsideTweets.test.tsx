@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import InsideTweets from './InsideTweets';
 
 describe('<InsideTweets />', () => {
-  test('it should mount', () => {
+  it('should mount', () => {
     render(<InsideTweets />);
     
     const insideTweets = screen.getByTestId('InsideTweets');

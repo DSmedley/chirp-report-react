@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import Footer from './Footer';
 
 describe('<Footer />', () => {
-  test('it should mount', () => {
+  it('should mount', () => {
     render(<Footer />);
     
     const footer = screen.getByTestId('Footer');

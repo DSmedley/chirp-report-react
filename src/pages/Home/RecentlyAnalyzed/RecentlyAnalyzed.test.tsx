@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import RecentlyAnalyzed from './RecentlyAnalyzed';
 
 describe('<RecentlyAnalyzed />', () => {
-  test('it should mount', () => {
+  it('should mount', () => {
     render(<RecentlyAnalyzed />);
     
     const recentlyAnalyzed = screen.getByTestId('RecentlyAnalyzed');

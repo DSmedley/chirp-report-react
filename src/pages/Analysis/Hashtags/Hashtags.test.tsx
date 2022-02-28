@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import Hashtags from './Hashtags';
 
 describe('<Hashtags />', () => {
-  test('it should mount', () => {
+  it('should mount', () => {
     render(<Hashtags />);
     
     const hashtags = screen.getByTestId('Hashtags');

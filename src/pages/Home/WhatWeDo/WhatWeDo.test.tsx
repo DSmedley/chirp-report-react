@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import WhatWeDo from './WhatWeDo';
 
 describe('<WhatWeDo />', () => {
-  test('it should mount', () => {
+  it('should mount', () => {
     render(<WhatWeDo />);
     
     const whatWeDo = screen.getByTestId('WhatWeDo');

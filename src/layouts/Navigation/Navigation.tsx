@@ -43,7 +43,7 @@ const Navigation = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" data-testid="Navigation">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box

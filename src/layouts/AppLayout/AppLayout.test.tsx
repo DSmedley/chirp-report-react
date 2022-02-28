@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import AppLayout from './AppLayout';
 
 describe('<AppLayout />', () => {
-  test('it should mount', () => {
+  it('should mount', () => {
     render(<AppLayout />);
     
     const appLayoout = screen.getByTestId('AppLayout');

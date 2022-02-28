@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import Links from './Links';
 
 describe('<Links />', () => {
-  test('it should mount', () => {
+  it('should mount', () => {
     render(<Links />);
     
     const links = screen.getByTestId('Links');

@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import Navigation from './Navigation';
 
 describe('<Navigation />', () => {
-  test('it should mount', () => {
+  it('should mount', () => {
     render(<Navigation />);
     
     const navigation = screen.getByTestId('Navigation');

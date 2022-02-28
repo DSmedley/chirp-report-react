@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import ThemeSwitch from './ThemeSwitch';
 
 describe('<ThemeSwitch />', () => {
-  test('it should mount', () => {
+  it('should mount', () => {
     render(<ThemeSwitch />);
     
     const themeSwitch = screen.getByTestId('ThemeSwitch');
