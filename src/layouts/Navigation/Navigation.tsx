@@ -14,16 +14,17 @@ import MenuItem from '@mui/material/MenuItem';
 import ThemeSwitch from '../../components/ThemeSwitch/ThemeSwitch';
 import {MenuLink} from './model/MenuLink';
 import {Link} from '@mui/material';
-
-const pages = [
-  new MenuLink('Home', '/', true),
-  new MenuLink('Analyze', '/', true),
-  new MenuLink('Compare', '/', true),
-  new MenuLink('About', '/about', true)
-];
-const settings = ['Profile', 'Logout'];
+import {useNavigate} from 'react-router-dom';
 
 const Navigation = () => {
+  const navigate = useNavigate();
+  const pages = [
+    new MenuLink('Home', () => navigate('/')),
+    new MenuLink('Analyze', () => navigate('/')),
+    new MenuLink('Compare', () => navigate('/')),
+    new MenuLink('About', () => navigate('/about'))
+  ];
+  const settings = ['Profile', 'Logout'];
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -88,8 +89,8 @@ const Navigation = () => {
               }}
             >
               {pages.map((page) => (
-                <Link key={page.name} href={page.route} underline="none">
-                  <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                <Link key={page.name} onClick={page.onClick} underline="none">
+                  <MenuItem onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page.name}</Typography>
                   </MenuItem>
                 </Link>
@@ -112,9 +113,8 @@ const Navigation = () => {
           />
           <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
             {pages.map((page) => (
-              <Link key={page.name} href={page.route} underline="none">
+              <Link key={page.name} onClick={page.onClick} underline="none">
                 <Button
-                  key={page.name}
                   onClick={handleCloseNavMenu}
                   sx={{my: 2, color: 'white', display: 'block'}}
                 >
