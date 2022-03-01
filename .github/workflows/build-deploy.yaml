@@ -35,5 +35,18 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           passphrase: ${{ secrets.SERVER_SSH_PASSCODE }}
           source: "./build/*"
+          strip_components: 1
           target: ${{ secrets.REMOTE_TARGET_NEW }}
+      - name: Copy production files
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          passphrase: ${{ secrets.SERVER_SSH_PASSCODE }}
+          script: |
+            sudo rm -rf ${{ secrets.REMOTE_TARGET_OLD }}
+            sudo chown -R www-data:www-data ${{ secrets.REMOTE_TARGET_NEW }}
+            mv ${{ secrets.REMOTE_TARGET_CURRENT }} ${{ secrets.REMOTE_TARGET_OLD }}
+            mv ${{ secrets.REMOTE_TARGET_NEW }} ${{ secrets.REMOTE_TARGET_CURRENT }}
 
