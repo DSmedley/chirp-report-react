@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import styles from './Analysis.module.css';
 import {TwitterAnalysis} from './model/TwitterAnalysis';
-import axios from 'axios';
 import Moment from 'moment';
 import {useParams} from 'react-router-dom';
 import {
@@ -24,28 +23,17 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import LinkIcon from '@mui/icons-material/Link';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import VerifiedIcon from '@mui/icons-material/Verified';
+import {useAnalysis} from '../../hooks/AnalysisHooks';
 
 const Analysis = () => (
-
   <div className={styles.Analysis} data-testid="Analysis">
     <DisplayAnalysis/>
   </div>
 );
 
-
 function DisplayAnalysis() {
   const {screenName} = useParams();
-  const [analysis, setAnalysis] = useState(new TwitterAnalysis());
-
-  const getImage = (screenName: string) => {
-    return `https://unavatar.io/twitter/${screenName}`;
-  };
-  useEffect(() => {
-    axios.get(`${process.env.REACT_APP_CHIRP_API_URL}/analyze?screen_name=${screenName}`)
-      .then(res => {
-        setAnalysis(res.data);
-      });
-  }, [screenName]);
+  const analysis: TwitterAnalysis = useAnalysis(screenName? screenName : '');
 
   return (
     <Container>
@@ -60,7 +48,7 @@ function DisplayAnalysis() {
               variant="contained" startIcon={<EmailIcon/>}>Email</Button>
           </Box>
           <Typography variant="h4">
-            {analysis.name}<VerifiedIcon sx={{color: '#1D9BF0'}}/>
+            {analysis.name}<span>{getVerified(analysis.verified)}</span>
           </Typography>
           <Typography variant="subtitle1" gutterBottom>
             @{analysis.screen_name}
@@ -94,7 +82,7 @@ function DisplayAnalysis() {
           <Box sx={{mt: 2}}>
             <Avatar
               alt={analysis.name}
-              src={getImage(analysis.screen_name)}
+              src={`https://unavatar.io/twitter/${analysis.screen_name}`}
               sx={{width: '9em', height: '9em', float: 'right'}}
             />
           </Box>
@@ -123,6 +111,12 @@ function DisplayAnalysis() {
         </Grid>
       </Grid>
     </Container>
+  );
+}
+
+function getVerified(verified: number) {
+  return verified && (
+    <VerifiedIcon sx={{color: '#1D9BF0'}}/>
   );
 }
 
