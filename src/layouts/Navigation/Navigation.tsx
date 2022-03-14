@@ -19,10 +19,10 @@ import {useNavigate} from 'react-router-dom';
 const Navigation = () => {
   const navigate = useNavigate();
   const pages = [
-    new MenuLink('Home', () => navigate('/')),
-    new MenuLink('Analyze', () => navigate('/')),
-    new MenuLink('Compare', () => navigate('/')),
-    new MenuLink('About', () => navigate('/about'))
+    new MenuLink(() => navigate('/'), 'Home'),
+    new MenuLink(() => navigate('/'), 'Analyze'),
+    new MenuLink(() => navigate('/'), 'Compare'),
+    new MenuLink(() => navigate('/about'), 'About')
   ];
   const settings = ['Profile', 'Logout'];
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);

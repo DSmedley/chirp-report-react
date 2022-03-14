@@ -1,7 +1,7 @@
 export class MenuLink {
   constructor(
-    public name: string = '',
-    public onClick: () => void
+    public onClick: () => void,
+    public name: string = ''
   ) {
   }
 }
