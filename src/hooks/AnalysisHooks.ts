@@ -14,3 +14,16 @@ export function useAnalysis(screenName: string): TwitterAnalysis {
 
   return analysis;
 }
+
+export function useRecent(): TwitterAnalysis[] {
+  const [recent, setRecent] = useState<Array<TwitterAnalysis>>([]);
+
+  useEffect(() => {
+    axios.get(`${process.env.REACT_APP_CHIRP_API_URL}/analyses`)
+      .then(res => {
+        setRecent(res.data);
+      });
+  }, []);
+
+  return recent;
+}

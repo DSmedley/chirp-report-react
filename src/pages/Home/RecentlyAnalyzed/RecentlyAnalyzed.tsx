@@ -1,23 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import styles from './RecentlyAnalyzed.module.css';
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
-import axios from 'axios';
-import {TwitterAnalysis} from '../../Analysis/model/TwitterAnalysis';
 import {Card, CardActionArea, CardMedia, Grid} from '@mui/material';
+import {useRecent} from '../../../hooks/AnalysisHooks';
+import {TwitterAnalysis} from '../../Analysis/model/TwitterAnalysis';
 
 export default function RecentlyAnalyzed() {
-  const [recent, setRecent] = useState<Array<TwitterAnalysis>>([]);
-
-  const getImage = (screenName: string) => {
-    return `https://unavatar.io/twitter/${screenName}`;
-  };
-
-  useEffect(() => {
-    axios.get(`${process.env.REACT_APP_CHIRP_API_URL}/analyses`)
-      .then(res => {
-        setRecent(res.data);
-      });
-  }, []);
+  const recent: TwitterAnalysis[] = useRecent();
 
   return (
     <div className={styles.RecentlyAnalyzed} data-testid="RecentlyAnalyzed">
@@ -29,7 +18,7 @@ export default function RecentlyAnalyzed() {
               <CardActionArea>
                 <CardMedia
                   component="img"
-                  image={getImage(analysis.screen_name)}
+                  image={`https://unavatar.io/twitter/${analysis.screen_name}`}
                   alt={analysis.name}
                 />
               </CardActionArea>
