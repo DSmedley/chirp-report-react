@@ -22,7 +22,7 @@ describe('AnalysisHooks', () => {
 
       await waitForNextUpdate();
 
-      expect(mockedAxios.get).toHaveBeenCalledWith(`${process.env.REACT_APP_CHIRP_API_URL}/analyze?screen_name=${screenName}`)
+      expect(mockedAxios.get).toHaveBeenCalledWith(`${process.env.REACT_APP_CHIRP_API_URL}/analyze?screen_name=${screenName}`);
       expect(result.current).toEqual(analysis);
     });
   });
