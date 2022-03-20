@@ -3,10 +3,10 @@ import styles from './RecentlyAnalyzed.module.css';
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import {Card, CardActionArea, CardMedia, Grid} from '@mui/material';
 import {useRecent} from '../../../hooks/AnalysisHooks';
-import {TwitterAnalysis} from '../../Analysis/model/TwitterAnalysis';
+import {Background} from '../../Analysis/model/Background';
 
 export default function RecentlyAnalyzed() {
-  const recent: TwitterAnalysis[] = useRecent();
+  const recent: Background[] = useRecent();
 
   return (
     <div className={styles.RecentlyAnalyzed} data-testid="RecentlyAnalyzed">

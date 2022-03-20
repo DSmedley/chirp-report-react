@@ -1,53 +1,16 @@
+import {Background} from './Background';
+import {Mention} from './Mention';
+import {Hashtag} from './Hashtag';
+import {Hour} from './Hour';
+import {UserLink} from './UserLink';
+
 export class TwitterAnalysis {
   constructor(
-    public id: number = 0,
-    public twitter_id: number = 0,
-    public name: string = '',
-    public screen_name: string = '',
-    public location: string = '',
-    public profile_image: string = '',
-    public verified: number = 0,
-    public joined: string = '',
-    public time_zone: string = '',
-    public url: string = '',
-    public description: string = '',
-    public tweets: number = 0,
-    public following: number = 0,
-    public followers: number = 0,
-    public likes: number = 0,
-    public total: number = 0,
-    public replies: number = 0,
-    public mentions: number = 0,
-    public hashtags: number = 0,
-    public retweets: number = 0,
-    public links: number = 0,
-    public media: number = 0,
-    public retweet_count: number = 0,
-    public retweet_total: number = 0,
-    public favorite_count: number = 0,
-    public favorite_total: number = 0,
-    public positive: number = 0,
-    public negative: number = 0,
-    public neutral: number = 0,
-    public anger: number = 0,
-    public anticipation: number = 0,
-    public disgust: number = 0,
-    public fear: number = 0,
-    public joy: number = 0,
-    public sadness: number = 0,
-    public surprise: number = 0,
-    public trust: number = 0,
-    public none: number = 0,
-    public top_joy: string = '',
-    public top_sad: string = '',
-    public top_ang: string = '',
-    public top_fear: string = '',
-    public top_ant: string = '',
-    public top_surp: string = '',
-    public top_disg: string = '',
-    public top_trust: string = '',
-    public created_at: string = '',
-    public updated_at: string = ''
+    public background: Background = new Background(),
+    public mentions: Mention[] = [],
+    public hashtags: Hashtag[] = [],
+    public hours: Hour[] = [],
+    public urls: UserLink[] = []
   ) {
   }
 }

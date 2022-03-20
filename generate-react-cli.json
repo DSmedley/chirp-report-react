@@ -6,10 +6,31 @@
   "component": {
     "default": {
       "path": "src/components",
-      "withStyle": true,
+      "withStyle": false,
       "withTest": true,
       "withStory": false,
       "withLazy": false
+    },
+    "page": {
+      "path": "src/pages",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": false,
+      "withTest": true
+    },
+    "layout": {
+      "path": "src/layouts",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": false,
+      "withTest": true
+    },
+    "hook": {
+      "path": "src/hooks",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": false,
+      "withTest": true
     }
   }
 }

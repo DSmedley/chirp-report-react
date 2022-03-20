@@ -2,15 +2,17 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import RecentlyAnalyzed from './RecentlyAnalyzed';
-import {TwitterAnalysis} from '../../Analysis/model/TwitterAnalysis';
-import * as hooks from '../../../hooks/AnalysisHooks';
+import {useRecent} from '../../../hooks/AnalysisHooks';
+import {Background} from '../../Analysis/model/Background';
+
+jest.mock('../../../hooks/AnalysisHooks');
 
 describe('<RecentlyAnalyzed />', () => {
   
-  let mockRecent: TwitterAnalysis[];
+  let mockRecent: Background[];
   beforeEach(() => {
     mockRecent = [];
-    jest.spyOn(hooks, 'useRecent').mockImplementation(() => mockRecent);
+    (useRecent as jest.Mock).mockImplementation(() => mockRecent);
   });
 
   it('should mount', () => {
@@ -26,8 +28,8 @@ describe('<RecentlyAnalyzed />', () => {
     const recentName2 = 'secondName';
     const recentScreenName1 = 'firstScreenName';
     const recentScreenName2 = 'secondScreenName';
-    const recent1 = new TwitterAnalysis(1, 1, recentName1, recentScreenName1);
-    const recent2 = new TwitterAnalysis(2, 2, recentName2, recentScreenName2);
+    const recent1 = new Background(1, 1, recentName1, recentScreenName1);
+    const recent2 = new Background(2, 2, recentName2, recentScreenName2);
     mockRecent = [recent1, recent2];
 
     render(<RecentlyAnalyzed/>);
