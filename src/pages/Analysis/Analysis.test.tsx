@@ -7,6 +7,11 @@ import {useAnalysis} from '../../hooks/AnalysisHooks';
 
 jest.mock('../../hooks/AnalysisHooks');
 
+jest.mock('react-chartjs-2', () => ({
+  Bar: () => null,
+  Doughnut: () => null
+}));
+
 describe('<Analysis />', () => {
 
   let mockAnalysis: TwitterAnalysis;
@@ -42,11 +47,13 @@ describe('<Analysis />', () => {
   });
 
   it('should render the location Chip when location is not empty', () => {
-    mockAnalysis.background.location = 'America';
+    const location = 'America';
+    mockAnalysis.background.location = location;
 
     render(<Analysis/>);
 
     expect(screen.getByTestId('location')).toBeInTheDocument();
+    expect(screen.getByTestId('location').textContent).toEqual(location);
   });
 
   it('should not render the location Chip when location is empty', () => {
@@ -58,11 +65,12 @@ describe('<Analysis />', () => {
   });
 
   it('should render the join date Chip when joined is not empty', () => {
-    mockAnalysis.background.joined = 'America';
+    mockAnalysis.background.joined = 'Wed Nov 23 03:44:50 +0000 2011';
 
     render(<Analysis/>);
 
     expect(screen.getByTestId('joined')).toBeInTheDocument();
+    expect(screen.getByTestId('joined').textContent).toEqual('Joined November 2011');
   });
 
   it('should not render the join date Chip when joined is empty', () => {
@@ -74,11 +82,13 @@ describe('<Analysis />', () => {
   });
 
   it('should render the link Chip when url is not empty', () => {
-    mockAnalysis.background.url = 'America';
+    const url = 'https://some.url';
+    mockAnalysis.background.url = url;
 
     render(<Analysis/>);
 
     expect(screen.getByTestId('userLink')).toBeInTheDocument();
+    expect(screen.getByTestId('userLink').textContent).toEqual(url);
   });
 
   it('should not render the link Chip when url is empty', () => {
@@ -90,11 +100,13 @@ describe('<Analysis />', () => {
   });
 
   it('should render the timezone Chip when timezone is not empty', () => {
-    mockAnalysis.background.time_zone = 'America';
+    const timezome = 'Eastern';
+    mockAnalysis.background.time_zone = timezome;
 
     render(<Analysis/>);
 
     expect(screen.getByTestId('timezone')).toBeInTheDocument();
+    expect(screen.getByTestId('timezone').textContent).toEqual(timezome);
   });
 
   it('should not render the timezone Chip when timezone is empty', () => {

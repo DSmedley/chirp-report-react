@@ -182,7 +182,7 @@ export default function Sentiment(props: SentimentProps) {
               <Doughnut options={circleOptions} data={circleData}/>
             </Grid>
             <Grid item xs={12} sm={8}>
-              <Bar options={barOptions} data={barData} height={250}/>
+              <Bar options={barOptions} data={barData} height={150}/>
             </Grid>
             <Grid item xs={12} sx={{textAlign: 'right'}}>
               <Button variant="contained">Most Emotional</Button>

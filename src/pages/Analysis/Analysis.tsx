@@ -100,10 +100,10 @@ export default function Analysis() {
                 trust={analysis.background.trust}
               />
               <InsideTweets/>
-              <Links/>
+              <Links links={analysis.urls}/>
               <Hashtags/>
               <Mentions/>
-              <ActiveHours/>
+              <ActiveHours hours={analysis.hours}/>
             </Stack>
           </Grid>
         </Grid>
@@ -128,7 +128,7 @@ function getLocation(location: string) {
 function getJoinDate(joined: string) {
   return joined && (
     <Chip data-testid={'joined'} icon={<CalendarTodayIcon/>}
-      label={'Joined ' + Moment(joined).format('MMMM YYYY')} variant="outlined"
+      label={'Joined ' + Moment(new Date(joined)).format('MMMM YYYY')} variant="outlined"
       sx={{mr: 1, mb: 1}}/>
   );
 }
