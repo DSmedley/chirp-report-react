@@ -101,7 +101,7 @@ export default function Analysis() {
               />
               <InsideTweets/>
               <Links links={analysis.urls}/>
-              <Hashtags/>
+              <Hashtags hashtags={analysis.hashtags}/>
               <Mentions/>
               <ActiveHours hours={analysis.hours}/>
             </Stack>
