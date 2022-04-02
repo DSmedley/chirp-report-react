@@ -102,7 +102,7 @@ export default function Analysis() {
               <InsideTweets/>
               <Links links={analysis.urls}/>
               <Hashtags hashtags={analysis.hashtags}/>
-              <Mentions/>
+              <Mentions mentions={analysis.mentions}/>
               <ActiveHours hours={analysis.hours}/>
             </Stack>
           </Grid>

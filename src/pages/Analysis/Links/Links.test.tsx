@@ -22,17 +22,17 @@ describe('<Links />', () => {
     
     render(<Links links={links}/>);
 
-    const boxRef = screen.getByTestId('url-box');
+    const actualLinks = within(screen.getByTestId('url-box')).getAllByRole('link');
 
-    expect(within(boxRef).getAllByRole('link').length).toEqual(3);
-    expect(within(boxRef).getAllByRole('link')[0]).toHaveAttribute('href', links[0].url);
-    expect(within(boxRef).getAllByRole('link')[0]).toHaveAttribute('aria-label', `Used ${links[0].occurs} time(s)`);
-    expect(within(boxRef).getAllByRole('link')[0].textContent).toEqual(links[0].url);
-    expect(within(boxRef).getAllByRole('link')[1]).toHaveAttribute('href', links[1].url);
-    expect(within(boxRef).getAllByRole('link')[1]).toHaveAttribute('aria-label', `Used ${links[1].occurs} time(s)`);
-    expect(within(boxRef).getAllByRole('link')[1].textContent).toEqual(links[1].url);
-    expect(within(boxRef).getAllByRole('link')[2]).toHaveAttribute('href', links[2].url);
-    expect(within(boxRef).getAllByRole('link')[2]).toHaveAttribute('aria-label', `Used ${links[2].occurs} time(s)`);
-    expect(within(boxRef).getAllByRole('link')[2].textContent).toEqual(links[2].url);
+    expect(actualLinks.length).toEqual(3);
+    expect(actualLinks[0]).toHaveAttribute('href', links[0].url);
+    expect(actualLinks[0]).toHaveAttribute('aria-label', `Used ${links[0].occurs} time(s)`);
+    expect(actualLinks[0].textContent).toEqual(links[0].url);
+    expect(actualLinks[1]).toHaveAttribute('href', links[1].url);
+    expect(actualLinks[1]).toHaveAttribute('aria-label', `Used ${links[1].occurs} time(s)`);
+    expect(actualLinks[1].textContent).toEqual(links[1].url);
+    expect(actualLinks[2]).toHaveAttribute('href', links[2].url);
+    expect(actualLinks[2]).toHaveAttribute('aria-label', `Used ${links[2].occurs} time(s)`);
+    expect(actualLinks[2].textContent).toEqual(links[2].url);
   });
 });

@@ -22,15 +22,15 @@ describe('<Hashtags />', () => {
 
     render(<Hashtags hashtags={hashtags}/>);
 
-    const hashtagBoxRef = screen.getByTestId('hashtag-box');
+    const hashtagBoxRef = within(screen.getByTestId('hashtag-box')).getAllByTestId('hashtag');
 
-    expect(within(hashtagBoxRef).getAllByTestId('hashtag').length).toEqual(3);
-    expect(within(hashtagBoxRef).getAllByTestId('hashtag')[0]).toHaveAttribute('aria-label', `Used ${hashtags[0].occurs} time(s)`);
-    expect(within(hashtagBoxRef).getAllByTestId('hashtag')[0].textContent).toEqual(`#${hashtags[0].hashtag}`);
-    expect(within(hashtagBoxRef).getAllByTestId('hashtag')[1]).toHaveAttribute('aria-label', `Used ${hashtags[1].occurs} time(s)`);
-    expect(within(hashtagBoxRef).getAllByTestId('hashtag')[1].textContent).toEqual(`#${hashtags[1].hashtag}`);
-    expect(within(hashtagBoxRef).getAllByTestId('hashtag')[2]).toHaveAttribute('aria-label', `Used ${hashtags[2].occurs} time(s)`);
-    expect(within(hashtagBoxRef).getAllByTestId('hashtag')[2].textContent).toEqual(`#${hashtags[2].hashtag}`);
+    expect(hashtagBoxRef.length).toEqual(3);
+    expect(hashtagBoxRef[0]).toHaveAttribute('aria-label', `Used ${hashtags[0].occurs} time(s)`);
+    expect(hashtagBoxRef[0].textContent).toEqual(`#${hashtags[0].hashtag}`);
+    expect(hashtagBoxRef[1]).toHaveAttribute('aria-label', `Used ${hashtags[1].occurs} time(s)`);
+    expect(hashtagBoxRef[1].textContent).toEqual(`#${hashtags[1].hashtag}`);
+    expect(hashtagBoxRef[2]).toHaveAttribute('aria-label', `Used ${hashtags[2].occurs} time(s)`);
+    expect(hashtagBoxRef[2].textContent).toEqual(`#${hashtags[2].hashtag}`);
     expect(screen.queryByTestId('empty-hashtag')).not.toBeInTheDocument();
   });
 
