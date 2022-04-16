@@ -99,7 +99,18 @@ export default function Analysis() {
                 surprise={analysis.background.surprise}
                 trust={analysis.background.trust}
               />
-              <InsideTweets/>
+              <InsideTweets
+                totalTweets={analysis.background.total}
+                replies={analysis.background.replies}
+                mentions={analysis.background.mentions}
+                hashtags={analysis.background.hashtags}
+                retweets={analysis.background.retweets}
+                links={analysis.background.links}
+                media={analysis.background.media}
+                retweetCount={analysis.background.retweet_count}
+                favoriteCount={analysis.background.favorite_count}
+                favoriteTotal={analysis.background.favorite_total}
+              />
               <Links links={analysis.urls}/>
               <Hashtags hashtags={analysis.hashtags}/>
               <Mentions mentions={analysis.mentions}/>

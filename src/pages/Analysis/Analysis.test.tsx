@@ -7,11 +7,6 @@ import {useAnalysis} from '../../hooks/AnalysisHooks';
 
 jest.mock('../../hooks/AnalysisHooks');
 
-jest.mock('react-chartjs-2', () => ({
-  Bar: () => null,
-  Doughnut: () => null
-}));
-
 describe('<Analysis />', () => {
 
   let mockAnalysis: TwitterAnalysis;

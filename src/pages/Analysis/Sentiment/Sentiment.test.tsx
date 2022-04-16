@@ -3,11 +3,6 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import Sentiment from './Sentiment';
 
-jest.mock('react-chartjs-2', () => ({
-  Bar: () => null,
-  Doughnut: () => null
-}));
-
 describe('<Sentiment />', () => {
   const neutral = 0;
   const positive = 1;
