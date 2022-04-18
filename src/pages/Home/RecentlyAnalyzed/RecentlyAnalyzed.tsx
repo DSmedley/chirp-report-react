@@ -1,7 +1,6 @@
 import React from 'react';
-import styles from './RecentlyAnalyzed.module.css';
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
-import {Grid} from '@mui/material';
+import {Box, Grid} from '@mui/material';
 import {useRecent} from '../../../hooks/AnalysisHooks';
 import {Background} from '../../Analysis/model/Background';
 import UserCard from '../../../components/UserCard/UserCard';
@@ -10,7 +9,7 @@ export default function RecentlyAnalyzed() {
   const recent: Background[] = useRecent();
 
   return (
-    <div className={styles.RecentlyAnalyzed} data-testid="RecentlyAnalyzed">
+    <Box data-testid='RecentlyAnalyzed'>
       <SectionTitle title={'Recently Analyzed'}/>
       <Grid container spacing={2}>
         {recent.map((analysis) => (
@@ -19,6 +18,6 @@ export default function RecentlyAnalyzed() {
           </Grid>
         ))}
       </Grid>
-    </div>
+    </Box>
   );
 }

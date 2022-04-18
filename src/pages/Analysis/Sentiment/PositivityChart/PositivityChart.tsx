@@ -10,26 +10,26 @@ type PositivityChartProps = {
   neutral: number;
 }
 
-export default function PositivityChart(props: PositivityChartProps) {
+export default function PositivityChart({positive, negative, neutral}: PositivityChartProps) {
   const theme = useTheme();
 
   const data = [
     {
       'id': 'positive',
       'label': 'Positive',
-      'value': props.positive,
+      'value': positive,
       'color': 'hsl(120, 100%, 50%)'
     },
     {
       'id': 'negative',
       'label': 'Negative',
-      'value': props.negative,
+      'value': negative,
       'color': 'hsl(0, 100%, 50%)'
     },
     {
       'id': 'neutral',
       'label': 'Neutral',
-      'value': props.neutral,
+      'value': neutral,
       'color': 'hsl(0, 0%, 75%)'
     }
   ];

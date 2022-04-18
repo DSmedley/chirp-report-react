@@ -9,7 +9,7 @@ type ActiveHoursProps = {
   hours: Hour[]
 }
 
-export default function ActiveHours(props: ActiveHoursProps) {
+export default function ActiveHours({hours}: ActiveHoursProps) {
   const theme = useTheme();
 
   return (
@@ -23,7 +23,7 @@ export default function ActiveHours(props: ActiveHoursProps) {
             Tweets Per Hours (UTC)
           </Typography>
           <ResponsiveBar
-            data={getActiveHours(props.hours)}
+            data={getActiveHours(hours)}
             keys={['tweets']}
             indexBy='hourKey'
             margin={{ top: 50, right: 30, bottom: 70, left: 60 }}

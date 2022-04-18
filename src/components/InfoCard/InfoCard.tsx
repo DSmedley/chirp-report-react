@@ -1,18 +1,17 @@
-import React, {FC} from 'react';
-import styles from './InfoCard.module.css';
+import React from 'react';
 import {Paper, SvgIcon} from '@mui/material';
 import {SvgIconComponent} from '@mui/icons-material';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-interface InfoCardProps {
+type InfoCardProps = {
   title: string;
   description: string;
   icon: SvgIconComponent;
 }
 
-const InfoCard: FC<InfoCardProps> = (props) => (
-  <div className={styles.InfoCard} data-testid="InfoCard">
+export default function InfoCard({title, description, icon}: InfoCardProps) {
+  return (
     <Paper
       sx={{
         minHeight: '9.25em',
@@ -20,6 +19,7 @@ const InfoCard: FC<InfoCardProps> = (props) => (
         p: '1.5em',
       }}
       elevation={3}
+      data-testid='InfoCard'
     >
       <Paper
         sx={{
@@ -39,7 +39,7 @@ const InfoCard: FC<InfoCardProps> = (props) => (
             width: '1.5em',
             height: '1.5em'
           }}
-          component={props.icon}
+          component={icon}
           inheritViewBox
         />
       </Paper>
@@ -48,15 +48,13 @@ const InfoCard: FC<InfoCardProps> = (props) => (
           pl: '1em'
         }}
       >
-        <Typography sx={{fontWeight: 'bold'}} variant="h5" gutterBottom component="div">
-          {props.title}
+        <Typography sx={{fontWeight: 'bold'}} variant='h5' gutterBottom component='div'>
+          {title}
         </Typography>
-        <Typography variant="body2">
-          {props.description}
+        <Typography variant='body2'>
+          {description}
         </Typography>
       </Box>
     </Paper>
-  </div>
-);
-
-export default InfoCard;
+  );
+}

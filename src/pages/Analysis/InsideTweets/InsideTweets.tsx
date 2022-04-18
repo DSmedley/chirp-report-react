@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './InsideTweets.module.css';
 import {Box, Card, CardContent, Grid, Typography, useTheme} from '@mui/material';
 import PercentageChart from './PercentageChart/PercentageChart';
 import {RadialBarCustomLayerProps} from '@nivo/radial-bar';
@@ -65,7 +64,7 @@ export default function InsideTweets(props: InsideTweetsProps) {
   const favoritedLayer = CustomLayer('Favorited', getFavoritedPercent(props));
 
   return (
-    <Box className={styles.InsideTweets} data-testid='InsideTweets' sx={{overflowY: 'clip'}}>
+    <Box data-testid='InsideTweets' sx={{overflowY: 'clip'}}>
       <Card variant='outlined' sx={{overflow: 'visible'}}>
         <CardContent>
           <Typography sx={{fontSize: 14}} color='text.secondary' gutterBottom>

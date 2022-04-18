@@ -1,6 +1,5 @@
 import React from 'react';
-import styles from './WhatWeDo.module.css';
-import {Grid} from '@mui/material';
+import {Box, Grid} from '@mui/material';
 import InfoCard from '../../../components/InfoCard/InfoCard';
 import InfoIcon from '@mui/icons-material/Info';
 import BarChartIcon from '@mui/icons-material/BarChart';
@@ -9,7 +8,7 @@ import ChatBubbleOutlineRoundedIcon from '@mui/icons-material/ChatBubbleOutlineR
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 
 const WhatWeDo = () => (
-  <div className={styles.WhatWeDo} data-testid="WhatWeDo">
+  <Box data-testid='WhatWeDo'>
     <SectionTitle title={'What We Do'}/>
     <Grid container spacing={2}>
       <Grid item xs={12} sm={6}>
@@ -41,7 +40,7 @@ const WhatWeDo = () => (
         />
       </Grid>
     </Grid>
-  </div>
+  </Box>
 );
 
 export default WhatWeDo;

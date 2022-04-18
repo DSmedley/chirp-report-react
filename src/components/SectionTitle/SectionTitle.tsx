@@ -1,16 +1,16 @@
-import React, {FC} from 'react';
-import styles from './SectionTitle.module.css';
+import React from 'react';
 import Typography from '@mui/material/Typography';
 import {Divider} from '@mui/material';
 import Box from '@mui/material/Box';
 
-interface SectionTitleProps {
+type SectionTitleProps = {
   title: string;
 }
 
-const SectionTitle: FC<SectionTitleProps> = (props) => (
-  <div className={styles.SectionTitle} data-testid="SectionTitle">
+export default function SectionTitle({title}: SectionTitleProps) {
+  return (
     <Box
+      data-testid='SectionTitle'
       sx={{
         width: '100%',
         textAlign: 'center',
@@ -18,12 +18,10 @@ const SectionTitle: FC<SectionTitleProps> = (props) => (
         pt: '2em'
       }}
     >
-      <Typography variant="h4" gutterBottom component="div">
-        {props.title}
+      <Typography variant='h4' gutterBottom component='div'>
+        {title}
       </Typography>
       <Divider sx={{bgcolor: 'primary.light', height: '.25em', width: '4em', margin: 'auto'}}/>
     </Box>
-  </div>
-);
-
-export default SectionTitle;
+  );
+}
