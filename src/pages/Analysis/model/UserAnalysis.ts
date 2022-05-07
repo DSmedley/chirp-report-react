@@ -4,7 +4,7 @@ import {Hashtag} from './Hashtag';
 import {Hour} from './Hour';
 import {UserLink} from './UserLink';
 
-export class TwitterAnalysis {
+export class UserAnalysis {
   constructor(
     public background: Background = new Background(),
     public mentions: Mention[] = [],

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Moment from 'moment';
-import {useParams} from 'react-router-dom';
+import {useParams, useSearchParams} from 'react-router-dom';
 import {
   Avatar, Box, Button,
   Chip,
@@ -25,7 +25,18 @@ import {useAnalysis} from '../../hooks/AnalysisHooks';
 
 export default function Analysis() {
   const {screenName} = useParams();
-  const {analysis, loading} = useAnalysis(screenName ? screenName : '');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const analysisId = searchParams.get('id');
+  const {analysis, loading} = useAnalysis(
+    screenName ? screenName : '',
+    analysisId ? parseInt(analysisId) : null
+  );
+
+  useEffect(() => {
+    if (!analysisId && analysis.background.id !== 0) {
+      setSearchParams({id: analysis.background.id.toString()});
+    }
+  }, [analysis.background.id, analysisId, setSearchParams]);
 
   return (
     <Container data-testid='Analysis'>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, List, ListItem, ListItemText, Typography} from '@mui/material';
+import {Container} from '@mui/material';
 
 const About = () => (
   <Container data-testid='About'>
